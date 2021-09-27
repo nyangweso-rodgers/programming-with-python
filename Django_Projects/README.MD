@@ -7,5 +7,11 @@ __Django__ is a web development framework that assists in building and maintaini
 * __Framework Support:__ Django has built-in support for __Ajax__, __RSS__, __Caching__ and various other frameworks.
 * __Development Environment:__ Django comes with a lightweight web server to facilitate end-to-end application developmnt and testing.
 
+# Features of Django
+1. __ORM__ (Object - Relational Mapping)
+2. URL routing
+3. HTML Templating
+4. Form Handling
+5. Unit Testing
 # References
 1.
