@@ -1,0 +1,7 @@
+# Objective
+Building students API
+
+# Running the app on comand line
+```
+uvicorn main:app --reload
+```
