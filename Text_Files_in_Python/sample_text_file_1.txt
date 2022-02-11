@@ -1,0 +1,3 @@
+// Python can be used to read and write the contents of a file
+// text files are the easiest to manipultae
+// before a file can be edited, it must be opened, using the open function.// This is another line appended to the file using the append method
