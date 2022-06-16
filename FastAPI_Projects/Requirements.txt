@@ -1,0 +1,14 @@
+# FastAPI
+
+# Installation of fastAPI on the command prompt, type:
+>> python -m pip install fastapi
+
+* Because working with fastAPI is a very light library, So you need like an external library just to run that file on the web server. 
+* So this UV con is going to allow us to run our firstAPI project or file on the web server.
+
+# Installation of uvicorn
+>> pip install uvicorn
+
+
+# Running the app on comand line
+>> uvicorn main:app --reload
