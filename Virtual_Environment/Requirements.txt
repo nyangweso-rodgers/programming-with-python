@@ -1,0 +1,25 @@
+# Using Virtual Environments
+* To get started, if you’re not using Python 3, you’ll want to install the virtualenv tool with pip
+>> $ pip install virtualenv
+
+* If you are using Python 3, then you should already have the venv module from the standard library installed.
+* Start by making a new directory to work with
+>> $ mkdir python-virtual-environments
+>> $ cd python-virtual-environments
+
+# Create a new virtual environment inside the directory
+>> $ virtualenv env  # for Python 2
+>> $ python -m venv env # for Python 3
+
+* The Python 3 venv approach has the benefit of forcing you to choose a specific version of the Python 3 interpreter that should be used to create the virtual environment. 
+* This avoids any confusion as to which Python installation the new environment is based on.
+* More interesting are the activate scripts in the bin directory. 
+* These scripts are used to set up your shell to use the environment’s Python executable and its site-packages by default.
+
+# Activating the Virtual Environment
+* In order to use this environment’s packages/resources in isolation, you need to “activate” it. To do this, just run the following:
+>> $ source env/Scripts/activate
+
+# Deactivating the Virtual Environment
+>> (env) $ deactivate
+* Remember to do this whenever you’re done using a specific virtual environment.
