@@ -1,8 +1,0 @@
-# Check Python version
->> python --version
-
-# Connecting Anaconda with VS Code
-## Setting Up vs code with Anaconda
->> install Python extension by Microsoft 
->> Go to command palette on the VS Code (Ctrl + Shift + P) and type User Settings 
->> Serch for Python Path
