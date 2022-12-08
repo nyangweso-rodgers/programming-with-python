@@ -1,11 +1,27 @@
 # Python Frameworks
 
 ## Table Of Contents
+- [Introduction to Python Frameworks](#Introduction-to-Python-Frameworks)
+    - [Python: Framework vs. Libraries](#Python:-Framework-vs.-Libraries)
+    
 - [Django vs Flask vs FastAPI Framework Differences](#Django-vs-Flask-vs-FastAPI-Framework-Differences)
 
-- [References]()
+- [Further Reading]()
     - [Django vs Flask vs FastAPI Framework Differences](https://gankrin.org/django-vs-flask-vs-fastapi-framework-differences/)
 
+# Introduction to Python Frameworks
+* In general, all __frameworks__ from different programming languages have the same functions―to fast track development. __Python frameworks__ are no different; they are a collection of modules and packages.
+
+* These frameworks automate common processes and implementation. For instance, developers can focus on application logic rather than dealing with routinary processes.
+
+# Python: Framework vs. Libraries
+* The major difference between __frameworks__ and __libraries__ is complexity. __Libraries__ offer fewer complexities, and __frameworks__ are the opposite. A __library__ is a _collection of packages that performs specific operations_.
+
+* On the other hand, __frameworks__ _contain the basic flow and architecture of the application. But, developers need to build the rest of the functionalities_.
+
+* _Control is also a key difference between these two_. When a developer calls a method from a library, the developer is in control of the development process. With frameworks, it is the one calling. It means that the frameworks call the processes, and the control lies in the framework.
+
+* However, frameworks are often used because of their key advantage―flexibility. They are extensible and provide the necessary tools to extend their features. Unlike libraries, developers need to learn each functionality to perform certain operations.
 # Django vs Flask vs FastAPI Framework Differences
 ** | Django | Flask | FastAPI
 |:------:|:---------:|:----------:|:----------:|
