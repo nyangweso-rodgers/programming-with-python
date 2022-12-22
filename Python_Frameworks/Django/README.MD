@@ -8,6 +8,7 @@
     - [How to Integrate Google APIs with Python Django](https://www.freecodecamp.org/news/how-to-integrate-google-apis-with-python-django/)
     - [How to deploy Django project to Heroku using Docker](https://www.accordbox.com/blog/deploy-django-project-heroku-using-docker/)
     - [Your First Steps With Django: Set Up a Django Project](https://realpython.com/django-setup/)
+    - [Anatomy Of An Application](https://www.mattlayman.com/understand-django/anatomy-of-an-application/)
 
 # Introduction to Django
 * __Django__ is a web development framework that assists in building and maintaining quality web applications. It helps eliminate repetitive tasks making the development process an easy and time-saving experience. __Django__ is a high-level Python web framework that encourages rapid developmnt and clean, progmatic design. It makes it easier to build better web apps quickly and with less code.
