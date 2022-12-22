@@ -7,5 +7,6 @@
     - [How to create a FastAPI Web App with authentication](https://samedwardes.com/2022/04/14/fastapi-webapp-with-auth/)
     - [FastAPI Course – Code APIs Quickly](https://www.freecodecamp.org/news/fastapi-helps-you-develop-apis-quickly/)
     - [Building a CRUD App with FastAPI and MongoDB](https://testdriven.io/blog/fastapi-mongo/)
+    - [FastAPI MongoDB REST API w/ Python and PyMongo | CRUD Operations mongodb | Swagger UI](https://www.youtube.com/watch?v=MXwcUrI-iss)
 
 # Introduction to FastAPI
