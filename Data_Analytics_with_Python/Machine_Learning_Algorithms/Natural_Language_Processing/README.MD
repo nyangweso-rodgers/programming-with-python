@@ -1,5 +1,0 @@
-# Natural Language Processing
-
-A hige percentage of the world's data and knowledge is in some for of human language. __Natural Language Processing__ (NLP) is not a ML method per se, but rather a widely used technique to prepare text for ML. At the moment, the most popular package for processing text is __NLTK__(Natural Language ToolKit), created by researchers at Stanford.
-
-The simplest way to map text into a numerical representation is to compute the frequency of each word within each text document. Think of a matrix of integers where each row represents a text document and each column represents a word. This matrix representation of word frequencies is commonly called __Term Frequency Matrix__ (TFM). From there, we create another popular matrix representation of a text document by dividing each entry on the matrix by a weight of how important each word within the entire corpus of documents. We call this method __Term Frequency Inverse Document Frequency__ (TFIDF) and it typically works better for ML tasks.
