@@ -5,24 +5,11 @@ def my_function():
 # calling a function
 my_function()
 
-# Arbitrary Arguments, *args
-## If the number of arguments is unknown, add a * before the parameter name:
-def my_kids(*kids):
-    print("The Youngest Child is " + kids[2])
-my_kids("Rodgers", "Omondi", "Nyangweso")
-
 # Keyword Arguments
 def my_cousins(cousin_1, cousin_2, cousin_3):
     print("The youngest Cousin is " + cousin_3)
     
 my_cousins(cousin_1 = "Rodgers", cousin_2 = "Omondi", cousin_3 = "Nyangweso")
-
-# Example: Arbitrary Keyword Arguments, **kwargs
-## If the number of keyword arguments is unknown, add a double ** before the parameter name:
-def my_siblings(**sib):
-    print("His las name is " + sib["last_name"])
-    
-my_siblings(first_name = 'Robert', last_name = 'Okoth')
 
 # Default Parameter Value
 def countries(country = 'Kenya'):
