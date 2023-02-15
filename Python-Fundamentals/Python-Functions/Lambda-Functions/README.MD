@@ -53,3 +53,15 @@
 
 # Remarks:
 * _Use lambda functions when an anonymous function is required for a short period of time._
+
+* _you can only define fairly rudimentary functions with lambda. The return value from a lambda expression can only be one single expression. A lambda expression can’t contain statements like assignment or return, nor can it contain control structures such as for, while, if, else, or def._
+
+* _a function defined with def can effectively return multiple values. If a return statement in a function contains several comma-separated values, then Python packs them and returns them as a tuple:_
+
+* _A lambda expression will typically have a parameter list, but it’s not required._
+
+    ```py
+        # You can define a lambda function without parameters. The return value is then not dependent on any input parameters:
+        fifty_producer = lambda: 50
+        print(fifty_producer()) # 50
+    ```
