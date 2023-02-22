@@ -1,0 +1,66 @@
+{
+"results": [
+{
+"gender": "female",
+"name": {
+"title": "Miss",
+"first": "Annemarie",
+"last": "Kahle"
+},
+"location": {
+"street": {
+"number": 843,
+"name": "Kirchplatz"
+},
+"city": "Erbendorf",
+"state": "Schleswig-Holstein",
+"country": "Germany",
+"postcode": 82442,
+"coordinates": {
+"latitude": "-47.2436",
+"longitude": "4.3635"
+},
+"timezone": {
+"offset": "+10:00",
+"description": "Eastern Australia, Guam, Vladivostok"
+}
+},
+"email": "annemarie.kahle@example.com",
+"login": {
+"uuid": "163f183e-c7dd-498b-bf62-d37f9cc0caaf",
+"username": "bluesnake290",
+"password": "grass",
+"salt": "DYZKFTT9",
+"md5": "c9477d5494e17c9bf3c3de48198b6065",
+"sha1": "0970274efd2fde32e77b9e79c4123e6373813171",
+"sha256": "65942188508eda4b5d90143a386e5a15faf24a1910ed57c3472ed5e382fdaecc"
+},
+"dob": {
+"date": "1972-11-16T09:57:41.292Z",
+"age": 50
+},
+"registered": {
+"date": "2021-04-24T16:16:37.951Z",
+"age": 1
+},
+"phone": "0770-7669759",
+"cell": "0173-1728382",
+"id": {
+"name": "SVNR",
+"value": "24 161172 K 682"
+},
+"picture": {
+"large": "https://randomuser.me/api/portraits/women/54.jpg",
+"medium": "https://randomuser.me/api/portraits/med/women/54.jpg",
+"thumbnail": "https://randomuser.me/api/portraits/thumb/women/54.jpg"
+},
+"nat": "DE"
+}
+],
+"info": {
+"seed": "017a19120bf4b1d3",
+"results": 1,
+"page": 1,
+"version": "1.4"
+}
+}
