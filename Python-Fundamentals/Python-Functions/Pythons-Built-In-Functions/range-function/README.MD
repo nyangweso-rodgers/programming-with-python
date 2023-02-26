@@ -1,0 +1,5 @@
+# range() funtion
+
+* __range__ is a built-in function used for generating a sequence of numbers, often used for iterating over a sequence of values. The range function returns an object that represents the sequence of numbers, which can be used in a for loop, a list comprehension, or any other Python construct that requires an iterable.
+
+* The __range__ function can take one, two, or three arguments, with the syntax __range([start], stop[, step])__. If only one argument is provided, range assumes that it is the stop argument and starts at 0. If two arguments are provided, range starts at the first argument and stops at the second argument (exclusive). If three arguments are provided, range starts at the first argument, stops at the second argument (exclusive), and increments by the third argument (step size).
