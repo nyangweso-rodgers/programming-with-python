@@ -15,11 +15,12 @@
 5. [Managing Environments](#Managing-Environments)
         - [Requirements File](#Requirements-File)
         - [Duplicating Environments](#Duplicating-Environments)
-        - [Troubleshooting](#Troubleshooting)
+        - [Troubleshooting](#Troubleshooting)   
 
 6. [Further Reading]()
     - [freeCodeCamp](https://www.freecodecamp.org/news/how-to-setup-virtual-environments-in-python/)
     - [A Guide to Python’s Virtual Environments](https://towardsdatascience.com/virtual-environments-104c62d48c54)
+    - [How virtual environments work](https://snarky.ca/how-virtual-environments-work/)
 
 # Introduction to Virtual Environments
 * A __virtual environment__ is a Python tool for __dependency management__ and __project isolation__. They allow Python __site packages__ (third party libraries) to be installed locally in an isolated directory for a particular project, as opposed to being installed globally (i.e. as part of a system-wide Python).
@@ -44,7 +45,31 @@
 * You can easily create a list of dependencies and sub dependencies in a file, for your project, which makes it easy for other developers to replicate and install all the dependencies used within your environment
 * Keep your global site-packages/ directory tidy by removing the need to install packages system-wide which you might only need for one project.
 
-# Using Virtual Environments
+# Structure of Python Virtual Environment
+1. __bin__ (__Scripts__ on Windows) on Unix.
+
+
+2. __include__ (__Include__ on Windows) on Unix:
+   * The __include__ directory is for any header files that might get installed for some reason from a project.
+
+
+3. __lib/pythonX.Y/site-packages__  where __X__, __Y__ is the Python version (__Lib/site-packages__ on Windows) on Unix:
+   *  The __site-packages__ directory is where projects get installed into the virtual environment (including __pip__ if you choose to have it installed into the virtual environment).
+
+
+4. __lib64__ symlinked to __lib__ if you're using a 64-bit build of Python that's on a POSIX-based OS that's not macOS: 
+   * The __lib64__ symlink is for consistency on those Unix OSs where they have such directories.
+
+5. The configuration file is __pyvenv.cfg__ and it lives at the top of your virtual environment directory (e.v. __.venv/pyvenv.cfg__). As of Python 3.11, it contains a few entries:
+    * __home__ (the directory where the executable used to create the virtual environment lives; __os.path.dirname(sys._base_executable)__)
+    * __include-system-packages__ (should the global __site-packages__ be included, effectively turning off isolation?)
+    * __version__ (the Python version down to the micro version, but not with the release level, e.g. 3.12.0, but not 3.12.0a6)
+
+# How Python uses a virtual environment
+* During start-up, Python automatically calls the __site.main()__ function (unless you specify the __-S__ flag). That function calls __site.venv()__ which handles setting up your Python executable to use the virtual environment appropriately. Specifically, the __site__ module:
+  1. Looks for __pyvenv.cfg__ in either the same or parent directory as the running executable (which is not resolved, so the location of the symlink is used)
+  2. Looks for __include-system-site-packages__ in __pyvenv.cfg__ to decide whether the system __site-packages__ ends up on __sys.path__.
+  3. Sets __sys._home__ if __home__ is found in __pyvenv.cfg__ (__sys._home__ is used by __sysconfig__)
 # Creating Virtual Environments
 * Say we wanted to create a virtual environment for a project we’re working on called __test-project/__, which has the following directory tree.
 
