@@ -1,13 +1,6 @@
 # Python - Getting Started
 
 ## Table Of Contents
-- [Introduction to Python](#Introduction-to-Python)
-
-- [How Python Works](#How-Python-Works)
-
-- [Cons of using Python](#Cons-of-using-Python)
-
-- [Pip vs Conda: an in-depth comparison of Python’s two packaging systems](#Pip-vs-Conda:-an-in-depth-comparison-of-Python’s-two-packaging-systems)
 
 
 # Introduction to Python
