@@ -27,6 +27,37 @@
 
 - The fundamental difference between **pip** and **Conda** packaging is what they put in packages. **Pip packages** are **Python librarie** like `NumPy` or `matplotlib`. **Conda packages** include Python libraries (NumPy or matplotlib), C libraries (libjpeg), and executables (like C compilers, and even the Python interpreter itself).
 
+# How to Configure VS Code for Python Environment
+
+## Python Extensions
+
+1. Install [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from Microsoft.
+
+   - This is actually an extension pack that contains two extensions.
+     - The first extension is the Python extension. It lays the foundation for Python development in Visual Studio Code.
+     - The other one is [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance), which is a very performant language server for Python.
+
+2. **Ruff Linter**
+
+   - Ruff is an extremely fast Python linter written in Rust that imposes stricter linting rules than Pylint.
+   - Install [Ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff)
+
+3. **Isort**:
+
+   - Like a linter, [isort](https://marketplace.visualstudio.com/items?itemName=ms-python.isort) is another utility that's sole purpose is sorting import statements.
+   - The utility sorts all the imports alphabetically, while also dividing them into sections.
+
+4. **InteiCode**
+
+   - [InteiCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode) provides AI assisted code completion in Visual Studio Code.
+
+5. **Error Lens**
+
+   - While not related to Python specifically, [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens) is a great extension that embeds errors right by the side of the line of code.
+
+6. **Indent Rainbow**
+   - [indent-rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow) adds some color to the identation.
+
 # Introduction to Virtual Environments
 
 - A **virtual environment** is a Python tool for **dependency management** and **project isolation**. They allow Python **site packages** (third party libraries) to be installed locally in an isolated directory for a particular project, as opposed to being installed globally (i.e. as part of a system-wide Python).
