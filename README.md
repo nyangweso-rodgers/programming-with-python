@@ -27,7 +27,7 @@
 
 - The fundamental difference between **pip** and **Conda** packaging is what they put in packages. **Pip packages** are **Python librarie** like `NumPy` or `matplotlib`. **Conda packages** include Python libraries (NumPy or matplotlib), C libraries (libjpeg), and executables (like C compilers, and even the Python interpreter itself).
 
-# How to Configure VS Code for Python Environment
+# How to Configure VS Code for Python Development Environment
 
 ## Python Extensions
 
@@ -58,7 +58,7 @@
 6. **Indent Rainbow**
    - [indent-rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow) adds some color to the identation.
 
-# Introduction to Virtual Environments
+# Python Virtual Environments
 
 - A **virtual environment** is a Python tool for **dependency management** and **project isolation**. They allow Python **site packages** (third party libraries) to be installed locally in an isolated directory for a particular project, as opposed to being installed globally (i.e. as part of a system-wide Python).
 
@@ -78,9 +78,9 @@
 - You can easily create a list of dependencies and sub dependencies in a file, for your project, which makes it easy for other developers to replicate and install all the dependencies used within your environment
 - Keep your global site-packages/ directory tidy by removing the need to install packages system-wide which you might only need for one project.
 
-## How Python uses a virtual environment
+## How Python uses a Virtual Environment
 
-- During start-up, Python automatically calls the **site.main()** function (unless you specify the **-S** flag). That function calls **site.venv()** which handles setting up your Python executable to use the virtual environment appropriately. Specifically, the **site** module:
+- During start-up, Python automatically calls the `site.main()` function (unless you specify the `-S` flag). That function calls `site.venv()` which handles setting up your Python executable to use the virtual environment appropriately. Specifically, the `site` module:
   1. Looks for **pyvenv.cfg** in either the same or parent directory as the running executable (which is not resolved, so the location of the symlink is used)
   2. Looks for **include-system-site-packages** in **pyvenv.cfg** to decide whether the system **site-packages** ends up on **sys.path**.
   3. Sets **sys.\_home** if **home** is found in **pyvenv.cfg** (**sys.\_home** is used by **sysconfig**)
@@ -195,6 +195,57 @@
       Sara% source venv/bin/activate
       (venv) Sara% pip install -r requirements.txt
   ```
+
+# Setting Python Development Environment with VScode and Docker
+
+## Step #1: Login into Docker Hub
+
+- you can log into [Docker Hub](https://hub.docker.com/) using the below command:
+  ```sh
+    docker login docker.io
+  ```
+
+## Step #2: Pull python:3.12.0
+
+- If you are pulling the image for the first time, run:
+  ```sh
+   docker pull python:3:12:0
+  ```
+
+## Step #3: Review Metadata of the Image
+
+- Review the image details by:
+  ```sh
+   docker inspect python:3:12:0
+  ```
+- `inspect` command provides useful information about the image such as:
+  - the layers information,
+  - image size,
+  - hardware architecture, e.t.c.,
+- As we want to run the image, the most interesting detail is the `CMD` setting. The `CMD` command in the `Dockerfile` defines what command to execute during the container launch time.
+
+## Step #4: Launch the Container
+
+- Use the `run` command to launch the container:
+  ```sh
+   # launch the container
+   docker run python 3:12:0
+  ```
+- Remark:
+  - we can give docker access to the terminal by using an interactive and TTY arguments to run the image in an interactive mode:
+  ```sh
+     # run docker in an interactive mode
+     docker run --interactive --tty python
+  ```
+  - This will attach the terminal to the container and open Python inside the container.
+  - While we were able to launch Python inside a container, it is not as useful:
+    - We cannot create, edit, and run scripts inside the Python interpreter
+    - By default, the Python image comes with a limited number of libraries. In this mode, you cannot add additional ones
+    - Last but not least, the container is ephemeral. Once you stop it, all the work is lost.
+
+## Step #5: Creating a `Dockerfile`
+
+## Step #6: Running the Python Environment
 
 # Resources
 
