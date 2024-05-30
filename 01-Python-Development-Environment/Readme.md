@@ -140,57 +140,6 @@
       (venv) Sara% pip install -r requirements.txt
   ```
 
-# Setting Python Development Environment with VScode and Docker
-
-## Step #1: Login into Docker Hub
-
-- you can log into [Docker Hub](https://hub.docker.com/) using the below command:
-  ```sh
-    docker login docker.io
-  ```
-
-## Step #2: Pull python:3.12.0
-
-- If you are pulling the image for the first time, run:
-  ```sh
-   docker pull python:3:12:0
-  ```
-
-## Step #3: Review Metadata of the Image
-
-- Review the image details by:
-  ```sh
-   docker inspect python:3:12:0
-  ```
-- `inspect` command provides useful information about the image such as:
-  - the layers information,
-  - image size,
-  - hardware architecture, e.t.c.,
-- As we want to run the image, the most interesting detail is the `CMD` setting. The `CMD` command in the `Dockerfile` defines what command to execute during the container launch time.
-
-## Step #4: Launch the Container
-
-- Use the `run` command to launch the container:
-  ```sh
-   # launch the container
-   docker run python 3:12:0
-  ```
-- Remark:
-  - we can give docker access to the terminal by using an interactive and TTY arguments to run the image in an interactive mode:
-  ```sh
-     # run docker in an interactive mode
-     docker run --interactive --tty python
-  ```
-  - This will attach the terminal to the container and open Python inside the container.
-  - While we were able to launch Python inside a container, it is not as useful:
-    - We cannot create, edit, and run scripts inside the Python interpreter
-    - By default, the Python image comes with a limited number of libraries. In this mode, you cannot add additional ones
-    - Last but not least, the container is ephemeral. Once you stop it, all the work is lost.
-
-## Step #5: Creating a `Dockerfile`
-
-## Step #6: Running the Python Environment
-
 # Resources
 
 1. [freeCodeCamp](https://www.freecodecamp.org/news/how-to-setup-virtual-environments-in-python/)
