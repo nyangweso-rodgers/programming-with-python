@@ -16,7 +16,7 @@
       RUN pip install -r requirements.txt
 
       # Define the default command to run when the container starts
-      CMD ["python", "app.py"]9
+      CMD ["python", "app.py"]
   ```
 
 - Where:
