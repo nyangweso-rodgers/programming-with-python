@@ -58,4 +58,56 @@
 6. **Indent Rainbow**
    - [indent-rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow) adds some color to the identation.
 
+# Python `main` Program
+
+- When the Python interpreter reads a source file, it does two things:
+  1. First, it sets a few special variables like `__name__`
+  2. Then it executes all of the code it finds in the file
+- Example:
+
+  - Let’s have a look at the following example where we correctly use the `if __name__ == "__main__"` statement:
+
+    ```py
+      # main.py
+      def functionA():
+         print("Function A")
+
+      if __name__ == "__main__":
+         print("Running foo")
+         functionA()
+    ```
+
+  - **Case 1**: (Run it as the main program with `python main.py`):
+    - The Python interpreter will assign the hard-coded string `"__main__" to the __name__` variable, thus the code in the if statement is executed:
+      ```sh
+         $ python main.py
+         Running foo
+         Function A
+      ```
+  - **Case 2**: Import foo in another module
+
+    - The interpreter will assign "foo" to the `__name__` variable in the foo module. Thus, the code in the if statement is not executed, and functionA will not run.
+
+      ```py
+         # This is bar.py
+         import foo
+
+         if __name__ == "__main__":
+            print("Running bar")
+      ```
+
+      ```sh
+         $ python bar.py
+         Running bar
+      ```
+
+  - Without the if `__name__ == "__main__"` in `main.py`, the output would be the following:
+    ```sh
+      $ python bar.py
+      Running foo
+      Function A
+      Running bar
+    ```
+  - Usually this is not what we want. So if you want to run code in a file, it’s good practice to wrap all of this code into a if `__name__ == "__main__" `statement.
+
 # Resources
