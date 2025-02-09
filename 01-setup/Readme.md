@@ -104,7 +104,47 @@
     pip install -r requirements.txt
    ```
 
-# Setting Up Virtual Environment (WSL)
+# Setting Up Virtual Environment on Ubuntu
+
+1. Step 1: Verify `python3` Installation:
+
+   - The latest **Ubuntu** versions come with **Python 3** installation, so to verify its installation, run the following command:
+
+     ```sh
+      python3 --version
+     ```
+
+   - In case this returns an error, you can install/re-install the package by running:
+     ```sh
+       sudo apt-get install python3
+     ```
+
+2. Step 2: Install `pip`:
+
+   - Next, you need to install the `pip` to install Python packages and their dependencies in a secure manner.
+     ```sh
+      sudo apt-get install python3-pip
+     ```
+
+3. Step 3: Create Virtual Environment
+
+   - Here, you will create a virtual environment for your project that will isolate your project’s dependencies to avoid potential conflicts between different package versions. Run the following set of commands in the terminal:
+     ```sh
+      sudo apt-get install python3-venv
+     ```
+   - This will install the required `venv` package required to create a virtual environment.
+   - Create a virtual environment by:
+
+     ```sh
+      python3 -m venv <name>
+     ```
+
+   - This command will create a virtual environment `<name>` inside your working directory. To start working inside this environment, you need to activate it by:
+     ```sh
+       source <name>/bin/activate
+     ```
+
+4. Step 4: Install Required Libraries and Packages
 
 # Resources
 
