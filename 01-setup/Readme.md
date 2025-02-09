@@ -48,7 +48,9 @@
      - **include-system-packages** (should the global **site-packages** be included, effectively turning off isolation?)
      - **version** (the Python version down to the micro version, but not with the release level, e.g. 3.12.0, but not 3.12.0a6)
 
-# Setting Up Virtual Environment (Windows)
+# Setup Python Virtual Environment
+
+## 1. Setting Up Virtual Environment (Windows)
 
 1. **Step 1**: Navigate to the root directory of your project using the terminal or command prompt.
 2. **Step 2**:
@@ -104,7 +106,7 @@
     pip install -r requirements.txt
    ```
 
-# Setting Up Virtual Environment on Ubuntu
+## 2. Setting Up Virtual Environment on Ubuntu
 
 1. Step 1: Verify `python3` Installation:
 
@@ -145,6 +147,34 @@
      ```
 
 4. Step 4: Install Required Libraries and Packages
+
+# Dockerize Python Application
+
+- Define `Dockerfile` in thr root directory with the following contents:
+
+  ```Dockerfile
+      # Use an official Python runtime as the base image
+      FROM python:3.12.0
+
+      # Set the working directory inside the container
+      WORKDIR /app
+
+      # Copy the current directory contents into the container at /app
+      COPY . /app
+
+      # Install any needed packages specified in requirements.txt
+      RUN pip install -r requirements.txt
+
+      # Define the default command to run when the container starts
+      CMD ["python", "app.py"]
+  ```
+
+- Where:
+  - `FROM:` Specifies the base image, in this case, Python 3.12.0
+  - `WORKDIR:` Sets the working directory within the container to `/app`.
+  - `COPY:` Copies the local files and directories into the container.
+  - `RUN:` Installs Python dependencies defined in `requirements.txt`.
+  - `CMD:` Specifies the default command to run the Python application when a container is started.
 
 # Resources
 
