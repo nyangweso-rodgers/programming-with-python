@@ -108,7 +108,7 @@
 
 ## 2. Setting Up Virtual Environment on Ubuntu
 
-1. Step 1: Verify `python3` Installation:
+1. **Step 1**: Verify `python3` Installation:
 
    - The latest **Ubuntu** versions come with **Python 3** installation, so to verify its installation, run the following command:
 
@@ -121,14 +121,14 @@
        sudo apt-get install python3
      ```
 
-2. Step 2: Install `pip`:
+2. **Step 2**: **Install** `pip`:
 
    - Next, you need to install the `pip` to install Python packages and their dependencies in a secure manner.
      ```sh
       sudo apt-get install python3-pip
      ```
 
-3. Step 3: Create Virtual Environment
+3. **Step 3**: **Create Virtual Environment**
 
    - Here, you will create a virtual environment for your project that will isolate your project’s dependencies to avoid potential conflicts between different package versions. Run the following set of commands in the terminal:
      ```sh
@@ -146,7 +146,23 @@
        source <name>/bin/activate
      ```
 
-4. Step 4: Install Required Libraries and Packages
+4. **Step 4**: **Install Required Libraries and Packages**
+
+5. **Step 5**: **Deactivate the Virtual Environment**
+
+   - Deactivate the virtual environment by:
+     ```sh
+      deativate
+     ```
+
+6. **Step 6**: **Delete the Virtual Environment Folder**
+   - Use the `rm` command to remove the entire folder.
+     ```sh
+      rm -rf <name>
+     ```
+   - `rm` is the remove command.
+   - `-r` (recursive) ensures all contents of the folder are deleted.
+   - `-f` (force) prevents prompts for confirmation.
 
 # Dockerize Python Application
 
