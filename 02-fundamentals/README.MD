@@ -4,56 +4,150 @@
 
 # Fundamentals of Concurrency
 
-## 1. Concurrency vs Parallelism
+# Concepts in Python
+
+## Programming Paradigms in Python
+
+- A **programming paradigm** is an approach to solving a problem using some programming language. It is a method to solve a problem using tools and techniques that are available to us following some approach. For **Python**, the following **paradigm** exists:
+
+  1. **Imperative**
+
+     - It executes commands step-by-step, just like a series of verbal commands. Also called **stateful programming model**.
+     - Example:
+
+       ```py
+        # sum the lists results
+        my_lists = [1, 2, 3, 4, 5]
+
+        sum_of_list = 0
+
+        for x in my_lists:
+            sum_of_list += x
+
+        print(sum_of_list)
+       ```
+
+  2. **Functional**
+
+     - A functional programming paradigm is one in which everything is bound in a pure mathematical functions style. It uses the mathematical function and treats every statement as a functional expression as an expression is executed to produce a value.
+     - Example:
+
+       ```py
+        # functional way of finding the sum in a list
+        import functools
+
+        my_lists = [1, 2, 3, 4, 5]
+
+        # using lambda expression
+        print(functools.reduce(lambda x, y: x + y, my_lists))
+
+        # Recursive Functional Approach
+        def sum_the_list(my_lists):
+            if len(my_lists) == 1:
+                return my_lists[0]
+            else:
+                return my_lists[0] + sum_the_list(my_lists[1:])
+        print(sum_the_list(my_lists))
+       ```
+
+  3. **Procedural**
+
+     - It is a subtype of **imperative** programming in which statements are structured into procedures.
+     - Example:
+
+       ```py
+        def stringify(characters):
+          string = ''
+          for c in characters:
+              string = string + c
+          return stringify
+
+        sample_characters = ['p', 'y', 't', 'h', 'o', 'n']
+        print(stringify(sample_characters))
+       ```
+
+  4. **Object Oriented**
+
+     - Here, objects are the key elements of the **paradigm**.
+     - **Objects** can simply be defined as the instance of a class that contains both data members and the method functions.
+     - Example:
+
+       ```py
+        class Emp:
+          def __init__(self, name, age):
+              self.name = name
+              self.age = age
+
+          def info(self):
+              print("Hello, % s. You are % old." % (self.name, self.age))
+
+        # Objects of the class Emp has been made here
+        Emps = [Emp("john", 43),
+        Emp("robert", 16),
+        Emp("rodgers", 24)]
+
+        # Objects of the class Emp have been used here
+        for emp in Emps:
+            emp.info()
+       ```
+
+## 1. `main()` Program
+
+- In Python, defining a function called `__main()__` is not a special keyword or reserved word. It is just a convention used by many Python programmers to indicate the entry point of a program.
+- The `__main()__` function typically contains the high-level logic of a program and is called when the program is executed. In many cases, the `main()` function is included within the if **name** == "**main**" block, so that it only gets executed when the program is run as the main program, and not when the file is imported as a module into another program.
+- **Features**
+  - The `__main()__` function can be defined anywhere in the file, and can have any name, but `__main()__` is a common convention. The name of the function does not affect how the function is executed or its functionality, but it is important to use a name that makes sense and is descriptive of the function's purpose.
+
+## 2. Concurrency vs Parallelism
 
 - **Concurrency** is all about managing multiple tasks at the same time, not necessarily simultaneously. Tasks may take turns, creating the illusion of **multitasking**.
 - **Parallelism** is about running multiple tasks simultaneously, typically by leveraging multiple CPU cores.
+- **Python’s Concurrency Models**
+  - Python provides three main approaches to handle multiple tasks simultaneously:
+    1. **multithreading**
+    2. **multiprocessing**, and
+    3. **asyncio**
+  - Without **concurrency**, a program processes only one task at a time. During operations like file loading, network requests, or user input, it stays idle, wasting valuable CPU cycles. **Concurrency** solves this by enabling multiple tasks to run efficiently.
 
-## 2. Programs
+## 3. Programs
 
 - A **program** is simply a static file, like a Python script or an executable.
 - A **program** sits on disk, and is passive until the operating system (OS) loads it into memory to run. Once this happens, the program becomes a **process**.
 
-## 3. Processes
+## 4. Processes vs. Threads
 
-- A **process** is an independent instance of a running **program**.
-- A **process** has its own memory space, resources, and execution state. **Processes** are isolated from each other, meaning one process cannot interfere with another unless explicitly designed to do so via mechanisms like **inter-process communication** (**IPC**).
+- **Process**
 
-- **Processes** can generally be categorised into **two types**:
+  - A **process** is an independent instance of a running **program**.
+  - A **process** has its own memory space, resources, and execution state. **Processes** are isolated from each other, meaning one process cannot interfere with another unless explicitly designed to do so via mechanisms like **inter-process communication** (**IPC**).
 
-  1. **I/O-bound processes**: Spend most of it’s time waiting for input/output operations to complete, such as file access, network communication, or user input. While waiting, the CPU sits idle.
-  2. **CPU-bound processes**: Spend most of their time doing computations (e.g video encoding, numerical analysis). These tasks require a lot of CPU time.
+  - **Processes** can generally be categorised into **two types**:
 
-- **Lifecycle of a process**:
-  1. A **process** starts in a new state when created.
-  2. It moves to the **ready state**, waiting for CPU time.
-  3. If the process waits for an event like I/O, it enters the **waiting** state.
-  4. Finally, it **terminates** after completing its task.
+    1. **I/O-bound processes**: Spend most of it’s time waiting for input/output operations to complete, such as file access, network communication, or user input. While waiting, the CPU sits idle.
+    2. **CPU-bound processes**: Spend most of their time doing computations (e.g video encoding, numerical analysis). These tasks require a lot of CPU time.
 
-## 4. Threads
+  - **Lifecycle of a process**:
+    1. A **process** starts in a new state when created.
+    2. It moves to the **ready state**, waiting for CPU time.
+    3. If the process waits for an event like I/O, it enters the **waiting** state.
+    4. Finally, it **terminates** after completing its task.
 
-- A **thread** is the smallest unit of execution within a **process**.
-- A **process** acts as a “container” for **threads**, and multiple threads can be created and destroyed over the process’s lifetime.
-- Every process has at least one **thread** — the **main thread** — but it can also create additional threads.
-- **Threads** share memory and resources within the same **process**, enabling efficient communication. However, this sharing can lead to **synchronisation** issues like race conditions or deadlocks if not managed carefully. Unlike **processes**, multiple **threads** in a single **process** are not isolated — one misbehaving thread can crash the entire process.
+- **Threads**
 
-## 5. How does the OS manage threads and processes?
+  - A **thread** is the smallest unit of execution within a **process**.
+  - A **process** acts as a “container” for **threads**, and multiple threads can be created and destroyed over the process’s lifetime.
+  - Every process has at least one **thread** — the **main thread** — but it can also create additional threads.
+  - **Threads** share memory and resources within the same **process**, enabling efficient communication. However, this sharing can lead to **synchronisation** issues like race conditions or deadlocks if not managed carefully. Unlike **processes**, multiple **threads** in a single **process** are not isolated — one misbehaving thread can crash the entire process.
 
-- The CPU can execute **only one task per core at a time**. To handle multiple tasks, the operating system uses **preemptive context switching**.
-- During a context switch, the OS pauses the current task, saves its state and loads the state of the next task to be executed.
-- This rapid switching creates the illusion of simultaneous execution on a single CPU core.
-- For **processes**, context switching is more resource-intensive because the OS must save and load separate memory spaces. For threads, switching is faster because threads share the same memory within a process. However, frequent switching introduces overhead, which can slow down performance.
-- True parallel execution of processes can only occur if there are **multiple CPU cores** available. Each core handles a separate process simultaneously.
+- **How does the OS manage threads and processes?**
 
-# Python’s Concurrency Models
+  - The **CPU** can execute **only one task per core at a time**. To handle multiple tasks, the operating system uses **preemptive context switching**.
+  - During a context switch, the OS pauses the current task, saves its state and loads the state of the next task to be executed.
+  - This rapid switching creates the illusion of simultaneous execution on a single CPU core.
+  - For **processes**, context switching is more resource-intensive because the OS must save and load separate memory spaces. For threads, switching is faster because threads share the same memory within a process. However, frequent switching introduces overhead, which can slow down performance.
+  - True parallel execution of processes can only occur if there are **multiple CPU cores** available. Each core handles a separate process simultaneously.
 
-- Python provides three main approaches to handle multiple tasks simultaneously:
-  1. multithreading
-  2. multiprocessing, and
-  3. asyncio
-- Without **concurrency**, a program processes only one task at a time. During operations like file loading, network requests, or user input, it stays idle, wasting valuable CPU cycles. **Concurrency** solves this by enabling multiple tasks to run efficiently.
-
-## 1. Multithreading
+## 5. Multithreading
 
 - **Multithreading** allows a **process** to execute **multiple threads** concurrently, with threads sharing the same memory and resources
 - However, Python’s **Global Interpreter Lock** (**GIL**) limits multithreading’s effectiveness for CPU-bound tasks.
@@ -77,7 +171,7 @@
   - Best for fast I/O-bound tasks as the frequency of context switching is reduced and the Python interpreter sticks to a single thread for longer
   - Not ideal for CPU-bound tasks due to GIL.
 
-## 2. Multiprocessing
+## 6. Multiprocessing
 
 - **Multiprocessing** enables a system to run multiple processes in parallel, each with its own memory, GIL and resources. Within each process, there may be one or more threads
 - **Multiprocessing** bypasses the limitations of the **GIL**. This makes it suitable for CPU bound tasks that require heavy computation.
@@ -87,7 +181,7 @@
   - Best for CPU-bound tasks which are computationally intensive.
   - When you need to bypass the GIL — Each process has it’s own Python interpreter, allowing for true parallelism.
 
-## 3. Asyncio
+## 7. Asyncio
 
 - Unlike **threads** or **processes**, **asyncio** uses a single thread to handle multiple tasks.
 - When writing asynchronous code with the **asyncio** library, you'll use the `async/await` keywords to manage tasks.
